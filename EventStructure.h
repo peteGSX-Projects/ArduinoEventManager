@@ -30,6 +30,10 @@ enum EventType { ByteEvent, IntEvent, LocoEvent, NoneEvent };
 /// Integer - caters for signed integer data (int y)
 /// Loco - caters for a pointer to a DCCEXProtocol Loco object (Loco *loco)
 /// None - caters for events that contain no data and are notification only
+/// When adding new data types:
+/// - Add type to the DataType enum
+/// - Add the type to the union
+/// - Add a new constructor for EventData
 struct EventData {
   enum class DataType { Byte, Integer, Loco, None };
   DataType dataType;
