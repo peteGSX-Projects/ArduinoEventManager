@@ -44,11 +44,6 @@ private:
   unsigned long _locoDelay;
   unsigned long _lastLocoEvent;
   Loco *_testLoco;
-
-  /// @brief Publish the specified event type and data
-  /// @param eventType Valid EventType
-  /// @param eventData Valid EventData
-  void _publishEvent(EventType eventType, EventData eventData);
 };
 
 #endif

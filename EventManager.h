@@ -47,11 +47,9 @@ public:
   bool isSubscribed(EventListener *eventListener, EventType eventType);
 
   /// @brief Method to publish an event
-  /// @param event An Event containing the EventType and EventData, for example:
-  /// EventData eventData((uint8_t)2);
-  /// Event event(EventType::ByteEvent, eventData);
-  /// eventManager->publish(event);
-  void publish(Event &event);
+  /// @param eventType A valid EventType
+  /// @param eventData Valid EventData
+  void publish(EventType eventType, EventData eventData);
 
 private:
   /// @brief EventSubscriber structure to maintain the linked list of subscribers

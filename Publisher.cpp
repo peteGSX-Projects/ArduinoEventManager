@@ -42,21 +42,16 @@ void Publisher::process() {
   if (currentMillis - _lastByteEvent > _byteDelay) {
     _lastByteEvent = currentMillis;
     EventData eventData(_testByte++);
-    _publishEvent(EventType::ByteEvent, eventData);
+    _eventManager->publish(EventType::ByteEvent, eventData);
   }
   if (currentMillis - _lastIntEvent > _intDelay) {
     _lastIntEvent = currentMillis;
     EventData eventData(_testInt++);
-    _publishEvent(EventType::IntEvent, eventData);
+    _eventManager->publish(EventType::IntEvent, eventData);
   }
   if (currentMillis - _lastLocoEvent > _locoDelay) {
     _lastLocoEvent = currentMillis;
     EventData eventData(_testLoco);
-    _publishEvent(EventType::LocoEvent, eventData);
+    _eventManager->publish(EventType::LocoEvent, eventData);
   }
-}
-
-void Publisher::_publishEvent(EventType eventType, EventData eventData) {
-  Event testEvent(eventType, eventData);
-  _eventManager->publish(testEvent);
 }

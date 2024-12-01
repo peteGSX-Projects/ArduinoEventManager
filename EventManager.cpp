@@ -79,7 +79,8 @@ bool EventManager::isSubscribed(EventListener *eventListener, EventType eventTyp
   return false;
 }
 
-void EventManager::publish(Event &event) {
+void EventManager::publish(EventType eventType, EventData eventData) {
+  Event event(eventType, eventData);
   for (EventSubscriber *eventSubscriber = _firstEventSubscriber; eventSubscriber;
        eventSubscriber = eventSubscriber->next) {
     if (eventSubscriber->eventType == event.eventType) {
